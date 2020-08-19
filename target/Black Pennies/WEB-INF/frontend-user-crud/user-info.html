@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="UTF-8"/>
+
+        <!-- bootstrap imports -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous"/>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+        
+        <!-- css imports -->
+        <link rel="stylesheet" href="bootstrap-overrides.css"/>
+        <link rel="stylesheet" href="sidebar.css"/>
+
+        <!-- jquery imports -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    
+        <!-- js imports -->
+        <script src="user-crud.js"> </script>
+        <script src="user-info.js"> </script>
+
+        <title>Black Pennies</title>
+  </head>
+
+  <body>
+
+     <!-- top navbar -->
+
+    <nav class="navbar navbar-default navbar-expand-lg navbar-light ">
+      <a class="navbar-brand" href="#" > <img src="logo.png" height="50px" /></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="home..html">Home <span class="sr-only">(current)</span></a>
+          </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <a type="button" class="btn btn-primary" >
+              <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person-fill" fill="white" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+              </svg> Profile </a>
+          <ul>
+      </div>
+    </nav>
+
+
+    <!-- Sidebar -->
+
+    <div class="wrapper">
+     
+      <nav id="sidebar">
+          <ul class="list-unstyled components">
+              <li class="active">
+                  <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Games</a>
+                  <ul class="collapse list-unstyled" id="homeSubmenu">
+                      <li>
+                          <a onclick="f()">Roulette</a>
+                          <script> var hash = location.hash.substr(1);
+                          function f() {
+                              window.location.href = "./roulette/show.html#" + hash;
+                          }</script>
+
+                      </li>
+                      <li>
+                          <a href="#">Coming soon...</a>
+                      </li>
+                  </ul>
+              </li>
+              <li>
+                  <a href="about.html">About</a>
+              </li>
+              <li>
+          </ul>
+      </nav>
+    
+
+      <div id="content">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <button type="button" id="sidebarCollapse" class="btn btn-info">
+                    <i class="fas fa-align-left"></i>
+                    <span> <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-list" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd" d="M2.5 11.5A.5.5 0 0 1 3 11h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+                    </svg> </span>
+                </button>
+            </div>
+        </nav>
+    </div>
+
+        <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+
+            <h1 class="text-center">Black Pennies</h1>
+
+        <table id="table" class="table table-striped table-bordered">
+        <tr>
+            <th>Nickname</th>
+            <th>Email</th>
+            <th>Balance</th>
+        </tr>
+        </table>
+
+        <button class="btn-primary" onclick="balance()" >ADD BALANCE</button>
+
+
+  </body>
+</html>

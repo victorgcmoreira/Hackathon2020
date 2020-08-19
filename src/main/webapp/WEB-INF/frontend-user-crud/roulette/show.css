@@ -1,0 +1,47 @@
+.navbar-light{
+    background-color: black;
+}
+
+.navbar {
+    position: relative;
+}
+
+.navbar-brand {
+    position: absolute;
+    left: 50%;
+    margin-left: -100px !important;  /* 50% of your logo width */
+    display: block;
+
+
+}
+
+.btn-primary {
+    margin: 10px;
+}
+
+.nav-link {
+    color: white !important;
+}
+
+.navbar-brand {
+    color: white !important;
+}
+.card{
+    display: flex;
+}
+
+.wrapper {
+    display: flex;
+    align-items: stretch;
+}
+
+
+
+.btn-info {
+    background-color: hotpink;
+    border-color: hotpink;
+}
+#classedemerda{
+    margin: 20px;
+}
+

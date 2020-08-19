@@ -1,0 +1,49 @@
+.navbar-light{
+    background-color: black;
+}
+
+.navbar {
+    position: relative;
+}
+
+.navbar-brand {
+    position: absolute;
+    left: 50%;
+    margin-left: -100px !important;  /* 50% of your logo width */
+    display: block;
+
+}
+
+
+.btn-primary {
+    margin: 10px;
+    background-color: hotpink !important;
+    border-color: hotpink;
+    color: white !important;
+}
+
+.nav-link {
+    color: white !important;
+}
+
+.navbar-brand {
+    color: white !important;
+}
+
+.wrapper {
+    display: flex;
+    align-items: stretch;
+}
+
+.card {
+
+    margin: 10px;
+    height: 800px;
+    width: 500px !important;
+
+}
+
+.btn-info {
+    background-color: hotpink;
+    border-color: hotpink;
+}

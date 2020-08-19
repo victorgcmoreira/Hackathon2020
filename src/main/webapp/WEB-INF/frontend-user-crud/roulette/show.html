@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8"/>
+
+    <!-- bootstrap imports -->
+    <link rel="stylesheet" href="main.css" type="text/css" />
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous"/>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+            crossorigin="anonymous"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+            integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+            crossorigin="anonymous"></script>
+    <script type="text/javascript" src="Winwheel.js"></script>
+
+    <!-- css imports -->
+    <link rel="stylesheet" href="../css/bootstrap-overrides.css"/>
+    <link rel="stylesheet" href="../css/sidebar.css"/>
+
+    <!-- jquery imports -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+    <!-- js imports -->
+    <script src="../js/user-crud.js"></script>
+
+    <title>Black Pennies</title>
+</head>
+<body>
+
+<nav class="navbar navbar-default navbar-expand-lg navbar-light ">
+    <a class="navbar-brand" href="#"> <img src="../images/logo.png" height="50px"/></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="../html/home.html">Home <span class="sr-only">(current)</span></a>
+            </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <a type="button" onclick="f2()" class="btn btn-primary" >
+                <script>
+                    function f2(){
+                        var hash = location.hash.substr(1);
+                        window.location.href = "../user-info.html#" + hash;
+                    }
+                </script>
+                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person-fill" fill="white" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                </svg> Profile </a>
+            <a type="button"  class="btn btn-primary" href="../html/home.html" > Logout </a>
+            </ul>
+    </div>
+</nav>
+
+
+<!-- Sidebar -->
+
+<div class="wrapper">
+
+    <nav id="sidebar">
+        <ul class="list-unstyled components">
+            <li class="active">
+                <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Games</a>
+                <ul class="collapse list-unstyled" id="homeSubmenu">
+                    <li>
+                        <a href="show.html">Roulette</a>
+                    </li>
+                    <li>
+                        <a href="#">Coming soon...</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="../html/about.html">About</a>
+            </li>
+        </ul>
+    </nav>
+
+    <div id="content">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <button type="button" id="sidebarCollapse" class="btn btn-info">
+                    <i class="fas fa-align-left"></i>
+                    <span> <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-list" fill="currentColor"
+                                xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd"
+                            d="M2.5 11.5A.5.5 0 0 1 3 11h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+                    </svg> </span>
+                </button>
+            </div>
+        </nav>
+
+    </div>
+</div>
+
+<div class="spin" align="center" style="margin-top: 2px">
+
+    <br />
+    <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+            <td>
+                <div class="power_controls">
+                    <br />
+                    <br />
+                    <table class="power" cellpadding="10" cellspacing="0">
+                        <tr>
+                            <th align="center">Power</th>
+                        </tr>
+                        <tr>
+                            <td width="78" align="center" id="pw3" onClick="powerSelected(3);">High</td>
+                        </tr>
+                        <tr>
+                            <td align="center" id="pw2" onClick="powerSelected(2);">Med</td>
+                        </tr>
+                        <tr>
+                            <td align="center" id="pw1" onClick="powerSelected(1);">Low</td>
+                        </tr>
+                    </table>
+                    <br />
+                    <img id="spin_button" class="button" src="spin_on.png" alt="Spin" />
+                    <br /><br />
+                    &nbsp;&nbsp;<a href="#" onClick="resetWheel(); return false;">Play Again</a><br />
+                </div>
+            </td>
+            <td width="421" height="564" class="the_wheel" align="center" valign="center">
+                <canvas id="canvas" width="420" height="420">
+                </canvas>
+            </td>
+        </tr>
+    </table>
+</div>
+<script>
+    // Create new wheel object specifying the parameters at creation time.
+    let theWheel = new Winwheel({
+        'numSegments': 8,                 // Specify number of segments.
+        'outerRadius': 200,               // Set outer radius so wheel fits inside the background.
+        'drawText': true,              // Code drawn text can be used with segment images.
+        'textFontSize': 22,
+        'textOrientation': 'curved',
+        'textAlignment': 'inner',
+        'textMargin': 120,
+        'textFontFamily': 'monospace',
+        'textStrokeStyle': 'black',
+        'textLineWidth': 3,
+        'textFillStyle': 'white',
+        'drawMode': 'segmentImage',    // Must be segmentImage to draw wheel using one image per segemnt.
+        'segments':                    // Define segments including image and text.
+            [
+                { 'image': 'black.png', 'text': 'TRY\nAGAIN' },
+                { 'image': 'yellow.png', 'text': 'YOU\nWON' },
+                { 'image': 'blue.png', 'text': 'IDIOT' },
+                { 'image': 'brown.png', 'text': 'NOPE' },
+                { 'image': 'purple.png', 'text': 'SHAME' },
+                { 'image': 'green.png', 'text': 'LOSER' },
+                { 'image': 'red.png', 'text': 'YOU\nSUCK' },
+                { 'image': 'pink.png', 'text': 'LOSER' }
+            ],
+        'animation':           // Specify the animation to use.
+            {
+                'type': 'spinToStop',
+                'duration': 5,     // Duration in seconds.
+                'spins': 8,     // Number of complete spins.
+                'callbackFinished': alertPrize,
+                'callbackSound': playSound,   // Function to call when the tick sound is to be triggered.
+                'soundTrigger': 'pin'
+            },
+        'pins':
+            {
+                'number': 16   // Number of pins. They space evenly around the wheel.
+            }
+    });
+    let audio = new Audio('tick.mp3');
+    function playSound() {
+        // Stop and rewind the sound if it already happens to be playing.
+        audio.pause();
+        audio.currentTime = 0;
+        // Play the sound.
+        audio.play();
+    }
+    $(function () {
+        $(".button").click(havemoney);
+    });
+    function havemoney() {
+        $.ajax({
+            type: 'GET',
+            url: "http://192.168.2.24:8080/BlackPennies/user/" + hash  + "/details",
+            async: true,
+            contentType: 'application/json',
+            success: function (data) {
+                if (data.balance >= "1.00") {
+                    withdraw();
+                } else{
+                    alert("no money mothafocker!!")
+                }
+            },
+            error: function (xhr, ajaxOptions, throwError) {
+            },
+        });
+    }
+
+    var hash = location.hash.substr(1);
+    function withdraw() {
+        $.ajax({
+            type: 'PUT',
+            url: "http://192.168.2.24:8080/BlackPennies/user/" + hash + "/withdraw",
+            data: JSON.stringify({
+                balance: "1.00"
+            }),
+            async: true,
+            contentType: 'application/json',
+            success: function () {
+                startSpin();
+            },
+            error: function (xhr, ajaxOptions, throwError) {
+            },
+        });
+    }
+    function deposit() {
+        $.ajax({
+            type: 'PUT',
+            url: "http://192.168.2.24:8080/BlackPennies/user/" + hash + "/deposit",
+            data: JSON.stringify({
+                balance: "10.00"
+            }),
+            async: true,
+            contentType: 'application/json',
+            success: function () {
+            },
+            error: function (xhr, ajaxOptions, throwError) {
+                alert(throwError);
+            },
+        });
+    }
+    // Vars used by the code in this page to do power controls.
+    let wheelPower = 0;
+    let wheelSpinning = false;
+    // -------------------------------------------------------
+    // Function to handle the onClick on the power buttons.
+    // -------------------------------------------------------
+    function powerSelected(powerLevel) {
+        // Ensure that power can't be changed while wheel is spinning.
+        if (wheelSpinning == false) {
+            // Reset all to grey incase this is not the first time the user has selected the power.
+            document.getElementById('pw1').className = "";
+            document.getElementById('pw2').className = "";
+            document.getElementById('pw3').className = "";
+            // Now light up all cells below-and-including the one selected by changing the class.
+            if (powerLevel >= 1) {
+                document.getElementById('pw1').className = "pw1";
+            }
+            if (powerLevel >= 2) {
+                document.getElementById('pw2').className = "pw2";
+            }
+            if (powerLevel >= 3) {
+                document.getElementById('pw3').className = "pw3";
+            }
+            // Set wheelPower var used when spin button is clicked.
+            wheelPower = powerLevel;
+            // Light up the spin button by changing it's source image and adding a clickable class to it.
+            document.getElementById('spin_button').src = "spin_on.png";
+            document.getElementById('spin_button').className = "clickable";
+        }
+    }
+    // -------------------------------------------------------
+    // Click handler for spin button.
+    // -------------------------------------------------------
+    function startSpin() {
+        // Ensure that spinning can't be clicked again while already running.
+        if (wheelSpinning == false) {
+            // Based on the power level selected adjust the number of spins for the wheel, the more times is has
+            // to rotate with the duration of the animation the quicker the wheel spins.
+            if (wheelPower == 1) {
+                theWheel.animation.spins = 3;
+            } else if (wheelPower == 2) {
+                theWheel.animation.spins = 8;
+            } else if (wheelPower == 3) {
+                theWheel.animation.spins = 15;
+            }
+            // Disable the spin button so can't click again while wheel is spinning.
+            document.getElementById('spin_button').src = "spin_on.png";
+            document.getElementById('spin_button').className = "";
+            // Begin the spin animation by calling startAnimation on the wheel object.
+            theWheel.startAnimation();
+            // Set to true so that power can't be changed and spin button re-enabled during
+            // the current animation. The user will have to reset before spinning again.
+            wheelSpinning = true;
+        }
+    }
+    // -------------------------------------------------------
+    // Function for reset button.
+    // -------------------------------------------------------
+    function resetWheel() {
+        theWheel.stopAnimation(false);  // Stop the animation, false as param so does not call callback function.
+        theWheel.rotationAngle = Math.random() * 3600;     // Re-set the wheel angle to 0 degrees.
+        theWheel.draw();                // Call draw to render changes to the wheel.
+        document.getElementById('pw1').className = "";  // Remove all colours from the power level indicators.
+        document.getElementById('pw2').className = "";
+        document.getElementById('pw3').className = "";
+        wheelSpinning = false;          // Reset to false to power buttons and spin can be clicked again.
+    }
+    // -------------------------------------------------------
+    // Called when the spin animation has finished by the callback feature of the wheel because I specified callback in the parameters.
+    // note the indicated segment is passed in as a parmeter as 99% of the time you will want to know this to inform the user of their prize.
+    // -------------------------------------------------------
+    function alertPrize(indicatedSegment) {
+        var msg = '';
+        if (indicatedSegment.text === 'YOU\nWON') {
+            msg = 'Boaaaaaa';
+            deposit();
+        } else {
+            msg = "You have lost!";
+        }
+        // Do basic alert of the segment text. You would probably want to do something more interesting with this information.
+        alert(msg);
+    }
+</script>
+</body>
+</html>
